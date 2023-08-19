@@ -9,14 +9,14 @@ flats <- read.csv("flats.csv", stringsAsFactors=FALSE, dec=",") #читаємо 
 flats <- flats %>%
     filter(Місто != "Києво-Святошинський")
 
-#str(flats) #дивимося структуру
+str(flats) #дивимося структуру
 #print(class(flats)) #перевіряємо тип даних
-#print(head(flats,15)) #показуємо перші 15 рядків
+print(head(flats,15)) #показуємо перші 15 рядків
 #print(dim(flats))#показуємо кількість полів
 #print(tail(flats,6))
 #print(names(flats))#назви полів/імена датафрейму
-#str(flats)
-#print(summary(flats))
+
+#print(summary(flats)) #показуємо статистичні показники датасету
 #glimpse(flats)
 #print(names(flats))
 #print(count(flats, Місто))
@@ -151,7 +151,7 @@ flats$rooms <- as.character(flats$Кімнат) #створюємо додатк
 
 # Побудуйте	гістограму	для	оцінки	розподілу	ціни	квартир
 
-print(
-    ggplot(flats, aes(x = Ціна)) +
-    geom_histogram(breaks = seq(10200, 12250000, 1250000), fill = "lightblue", col = "black")
-)
+#print(
+#    ggplot(flats, aes(x = Ціна)) +
+#    geom_histogram(breaks = seq(10200, 12250000, 1250000), fill = "lightblue", col = "black")
+#)
