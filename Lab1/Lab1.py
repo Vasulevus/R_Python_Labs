@@ -1,7 +1,7 @@
 import pandas
 import numpy
 import matplotlib
-import dplython
+import plotnine
 
 
 flats = pandas.read_csv("C:/Users/Vasulevus/Documents/Github/R_Python_Labs/Lab1/flats.csv",decimal=",")
@@ -26,7 +26,16 @@ flats = flats[flats["Місто"] != "Києво-Святошинський"] #�
 
 #(flats[flats["Кімнат"] == 2]).groupby(["Місто"]).aggregate({"Загальна_площа":"max"}).reset_index()#згруповано по місту
 
-a = (flats[flats["Кімнат"] == 2])
+#a = (flats[flats["Кімнат"] == 2])
 #a.aggregate({"Загальна_площа":"min","Загальна_площа":a.std()})
 #a.groupby(["Місто"])["Загальна_площа"].std().reset_index()
-a.groupby(["Місто"]).aggregate({"Загальна_площа":["mean","std"]}).reset_index() #групуємо по місту визначаємо середнє значення та стандартне відхилення
+#a.groupby(["Місто"]).aggregate({"Загальна_площа":["mean","std"]}).reset_index() #групуємо по місту визначаємо середнє значення та стандартне відхилення
+
+
+#flats = flats[flats["Місто"] == "Львів"] 
+
+#(flats[flats["Кімнат"] == 1]).groupby(["Місто"]).aggregate({"Загальна_площа":"median"})
+
+plotnine.ggplot(flats) + plotnine.aes(x="Кімнат") + plotnine.geom_bar(
+        fill = "lightblue"
+    ) + plotnine.ylab("Кількість")
